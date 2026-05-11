@@ -4,7 +4,7 @@
 ============================================ */
 
 // 🔑 STEP 1: PASTE YOUR API KEY HERE
-const API_KEY = "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";
+const API_KEY = "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";
 
 // Groq API endpoint
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
