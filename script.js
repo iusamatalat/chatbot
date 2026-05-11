@@ -9,7 +9,7 @@
 ============================================ */
 
 // 🔑 STEP 1: PASTE YOUR API KEY HERE
-const API_KEY = "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";
+const API_KEY = "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";
 
 // Groq API endpoint (OpenAI-compatible, very fast & free)
 const API_URL = "https://api.groq.com/openai/v1/chat/completions";
