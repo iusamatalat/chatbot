@@ -19,179 +19,136 @@
     <div class="orb orb-3"></div>
   </div>
 
-  <!-- ═══════════ CHAT HISTORY SIDEBAR ═══════════ -->
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <h2 class="sidebar-title">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <div class="logo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        Chat History
-      </h2>
-      <button class="new-chat-btn" id="new-chat-btn" title="New Chat">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M12 5v14M5 12h14"/>
-        </svg>
-      </button>
-    </div>
-    <div class="sidebar-search">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-      </svg>
-      <input type="text" id="search-chats" placeholder="Search chats…" class="search-input" />
-    </div>
-    <div class="chat-list" id="chat-list">
-      <!-- Chat items rendered dynamically -->
-      <div class="chat-list-empty" id="chat-list-empty">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-        <p>No chats yet</p>
-        <span>Start a conversation!</span>
       </div>
+      <span class="brand-name">MTM<span class="brand-accent">.ai</span></span>
     </div>
-  </aside>
 
-  <!-- Sidebar toggle (for mobile) -->
-  <button class="sidebar-toggle" id="sidebar-toggle" title="Toggle history">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M3 12h18M3 6h18M3 18h18"/>
-    </svg>
-  </button>
+    <nav class="nav-pills">
+      <span class="nav-pill active" id="nav-chat">Chat</span>
+      <span class="nav-pill" id="nav-docs">Docs</span>
+    </nav>
 
-  <!-- ═══════════ MAIN APP ═══════════ -->
-  <div class="app-main" id="app-main">
+    <div class="status">
+      <span class="status-dot"></span>
+      <span id="status-text">Ready</span>
+    </div>
+  </header>
 
-    <!-- Header -->
-    <header class="header">
-      <div class="brand">
-        <div class="logo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+  <!-- Main -->
+  <main class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        MTM AI Hackathon 2026
+      </div>
+      <h1 class="title">
+        Your ideas,<br/>
+        <span class="title-gradient">supercharged by AI</span>
+      </h1>
+      <p class="subtitle">Powered by Groq · LLaMA 3.3 · Ultra-fast inference</p>
+    </section>
+
+    <!-- Chat Interface -->
+    <section class="chat-container">
+
+      <!-- Model bar -->
+      <div class="model-bar">
+        <div class="model-info">
+          <span class="model-icon">⚡</span>
+          <span class="model-name">llama-3.3-70b-versatile</span>
+          <span class="model-badge">FREE</span>
         </div>
-        <span class="brand-name">MTM<span class="brand-accent">.ai</span></span>
+        <span class="shortcut-hint">Ctrl+Enter to send</span>
       </div>
 
-      <nav class="nav-pills">
-        <span class="nav-pill active" id="nav-chat">Chat</span>
-      </nav>
-
-      <div class="status">
-        <span class="status-dot"></span>
-        <span id="status-text">Ready</span>
-      </div>
-    </header>
-
-    <!-- Main -->
-    <main class="container">
-
-      <!-- Hero -->
-      <section class="hero" id="hero-section">
-        <div class="hero-badge">
-          <span class="badge-dot"></span>
-          MTM AI Hackathon 2026
-        </div>
-        <h1 class="title">
-          Your ideas,<br/>
-          <span class="title-gradient">supercharged by AI</span>
-        </h1>
-        <p class="subtitle">Powered by Groq · LLaMA 3.3 · Ultra-fast inference</p>
-      </section>
-
-      <!-- Chat Interface -->
-      <section class="chat-container">
-
-        <!-- Model bar -->
-        <div class="model-bar">
-          <div class="model-info">
-            <span class="model-icon">⚡</span>
-            <span class="model-name">llama-3.3-70b-versatile</span>
-            <span class="model-badge">FREE</span>
+      <!-- Messages area -->
+      <div class="messages-area" id="messages-area">
+        <!-- Welcome bubble -->
+        <div class="welcome-msg">
+          <div class="ai-avatar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 4v4l3 3"/>
+            </svg>
           </div>
-          <span class="shortcut-hint">Ctrl+Enter to send</span>
+          <div class="welcome-bubble">
+            <p>Hello! I'm your AI assistant for the MTM Hackathon. Ask me anything — brainstorm ideas, write code, explain concepts, or solve problems. What would you like to explore?</p>
+          </div>
         </div>
+      </div>
 
-        <!-- Messages area -->
-        <div class="messages-area" id="messages-area">
-          <!-- Welcome bubble -->
-          <div class="welcome-msg" id="welcome-msg">
-            <div class="ai-avatar">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 4v4l3 3"/>
+      <!-- Loading indicator -->
+      <div id="loading" class="loading hidden">
+        <div class="typing-indicator">
+          <div class="ai-avatar small">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 4v4l3 3"/>
+            </svg>
+          </div>
+          <div class="typing-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input area -->
+      <div class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="user-input"
+            class="input-field"
+            placeholder="Ask anything… e.g. 'Suggest 3 ideas to reduce campus food waste'"
+            rows="1"
+          ></textarea>
+          <div class="input-actions">
+            <button id="clear-btn" class="icon-btn" title="Clear chat">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 6 6 18M6 6l12 12"/>
               </svg>
-            </div>
-            <div class="welcome-bubble">
-              <p>Hello! I'm your AI assistant for the MTM Hackathon. Ask me anything — brainstorm ideas, write code, explain concepts, or solve problems. What would you like to explore?</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Loading indicator -->
-        <div id="loading" class="loading hidden">
-          <div class="typing-indicator">
-            <div class="ai-avatar small">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 4v4l3 3"/>
+            </button>
+            <button id="send-btn" class="send-btn" title="Send message">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/>
               </svg>
-            </div>
-            <div class="typing-dots">
-              <span></span><span></span><span></span>
-            </div>
+            </button>
           </div>
         </div>
+      </div>
 
-        <!-- Input area -->
-        <div class="input-area">
-          <div class="input-wrapper">
-            <textarea
-              id="user-input"
-              class="input-field"
-              placeholder="Ask anything… e.g. 'Suggest 3 ideas to reduce campus food waste'"
-              rows="1"
-            ></textarea>
-            <div class="input-actions">
-              <button id="clear-btn" class="icon-btn" title="Clear chat">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 6 6 18M6 6l12 12"/>
-                </svg>
-              </button>
-              <button id="send-btn" class="send-btn" title="Send message">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M22 2 11 13M22 2 15 22l-4-9-9-4 20-7z"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
+    </section>
 
-      </section>
+    <!-- Feature Cards -->
+    <section class="features">
+      <div class="feature-card">
+        <span class="feature-icon">🚀</span>
+        <h3>Lightning Fast</h3>
+        <p>Powered by Groq's LPU inference engine — responses in milliseconds, not seconds.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🧠</span>
+        <h3>LLaMA 3.3 70B</h3>
+        <p>State-of-the-art open-source model with expert-level reasoning and coding ability.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎯</span>
+        <h3>Hackathon Ready</h3>
+        <p>Built for MTM AI Hackathon 2026. Customize the system prompt to fit your project.</p>
+      </div>
+    </section>
 
-      <!-- Feature Cards -->
-      <section class="features" id="features-section">
-        <div class="feature-card">
-          <span class="feature-icon">🚀</span>
-          <h3>Lightning Fast</h3>
-          <p>Powered by Groq's LPU inference engine — responses in milliseconds, not seconds.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon">🧠</span>
-          <h3>LLaMA 3.3 70B</h3>
-          <p>State-of-the-art open-source model with expert-level reasoning and coding ability.</p>
-        </div>
-        <div class="feature-card">
-          <span class="feature-icon">🎯</span>
-          <h3>Hackathon Ready</h3>
-          <p>Built for MTM AI Hackathon 2026. Customize the system prompt to fit your project.</p>
-        </div>
-      </section>
+  </main>
 
-    </main>
-
-    <footer class="footer">
-      <span>Built for MTM AI Hackathon 2026 · GDGoC CUI Wah · Powered by Groq</span>
-    </footer>
-  </div>
+  <footer class="footer">
+    <span>Built for MTM AI Hackathon 2026 · GDGoC CUI Wah · Powered by Groq</span>
+  </footer>
 
   <script src="script.js"></script>
   <script>
@@ -210,7 +167,7 @@
       });
     });
 
-    // Copy response helper
+    // Copy response helper (called from dynamic buttons)
     function copyResponse(btn, text) {
       navigator.clipboard.writeText(text).then(() => {
         const original = btn.innerHTML;
@@ -222,19 +179,6 @@
         }, 2000);
       });
     }
-
-    // Sidebar toggle (mobile)
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-    const sidebar = document.getElementById('sidebar');
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-    });
-    // Close sidebar when clicking outside on mobile
-    document.getElementById('app-main').addEventListener('click', () => {
-      if (sidebar.classList.contains('open')) {
-        sidebar.classList.remove('open');
-      }
-    });
   </script>
 </body>
 </html>
